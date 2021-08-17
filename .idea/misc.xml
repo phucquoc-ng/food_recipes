@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/fragment_recipes.xml" value="0.14221014492753623" />
         <entry key="app/src/main/res/layout/item_recipe.xml" value="0.14221014492753623" />
         <entry key="app/src/main/res/layout/placeholder_row_layout.xml" value="0.19519927536231885" />
+        <entry key="app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/menu/details_menu.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/menu/favorite_recipes_menu.xml" value="0.1" />
       </map>

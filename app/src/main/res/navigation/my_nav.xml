@@ -7,9 +7,13 @@
 
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.ninjahitech.food_recipe.ui.RecipesFragment"
+        android:name="com.ninjahitech.food_recipe.ui.recipes.RecipesFragment"
         android:label="Recipes"
-        tools:layout="@layout/fragment_recipes" />
+        tools:layout="@layout/fragment_recipes" >
+        <action
+            android:id="@+id/action_recipesFragment_to_recipesBottomSheet"
+            app:destination="@id/recipesBottomSheet" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesRecipesFragment"
         android:name="com.ninjahitech.food_recipe.ui.FavoritesRecipesFragment"
@@ -20,4 +24,12 @@
         android:name="com.ninjahitech.food_recipe.ui.FoodJokeFragment"
         android:label="Food Joke"
         tools:layout="@layout/fragment_food_joke" />
+    <dialog
+        android:id="@+id/recipesBottomSheet"
+        android:name="com.ninjahitech.food_recipe.ui.recipes.bottomsheet.RecipesBottomSheet"
+        android:label="RecipesBottomSheet" >
+        <action
+            android:id="@+id/action_recipesBottomSheet_to_recipesFragment"
+            app:destination="@id/recipesFragment" />
+    </dialog>
 </navigation>

@@ -1,4 +1,4 @@
-package com.ninjahitech.food_recipe.data.database
+package com.ninjahitech.food_recipe.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

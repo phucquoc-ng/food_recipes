@@ -1,7 +1,7 @@
 package com.ninjahitech.food_recipe.data
 
 import com.ninjahitech.food_recipe.data.database.RecipesDao
-import com.ninjahitech.food_recipe.data.database.RecipesEntity
+import com.ninjahitech.food_recipe.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

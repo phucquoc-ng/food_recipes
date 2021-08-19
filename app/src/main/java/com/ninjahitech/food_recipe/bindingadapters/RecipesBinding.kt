@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import com.ninjahitech.food_recipe.data.database.RecipesEntity
+import com.ninjahitech.food_recipe.data.database.entities.RecipesEntity
 import com.ninjahitech.food_recipe.models.FoodRecipe
 import com.ninjahitech.food_recipe.utils.NetworkResult
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
@@ -41,12 +42,12 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
         // Inflate the layout for this fragment
         _binding = RecipesBottomSheetBinding.inflate(inflater, container, false)
 
-//        recipesViewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner, { value ->
-//            mealTypeChip = value.selectedMealType
-//            dietTypeChip = value.selectedDietType
-//            updateChip(value.selectedMealTypeId, binding.mealTypeChipGroup)
-//            updateChip(value.selectedDietTypeId, binding.dietTypeChipGroup)
-//        })
+        recipesViewModel.readMealAndDietType.asLiveData().observe(viewLifecycleOwner) { value ->
+            mealTypeChip = value.selectedMealType
+            dietTypeChip = value.selectedDietType
+            updateChip(value.selectedMealTypeId, binding.mealTypeChipGroup)
+            updateChip(value.selectedDietTypeId, binding.dietTypeChipGroup)
+        }
 
         binding.mealTypeChipGroup.setOnCheckedChangeListener { group, selectedChipId ->
             val chip = group.findViewById<Chip>(selectedChipId)
@@ -61,18 +62,18 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             dietTypeChip = selectedDietType
             dietTypeChipId = selectedChipId
         }
-//
-//        binding.applyBtn.setOnClickListener {
-//            recipesViewModel.saveMealAndDietTypeTemp(
-//                mealTypeChip,
-//                mealTypeChipId,
-//                dietTypeChip,
-//                dietTypeChipId
-//            )
-//            val action =
-//                RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
-//            findNavController().navigate(action)
-//        }
+
+        binding.applyBtn.setOnClickListener {
+            recipesViewModel.saveMealAndDietTypeTemp(
+                mealTypeChip,
+                mealTypeChipId,
+                dietTypeChip,
+                dietTypeChipId
+            )
+            val action =
+                RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+            findNavController().navigate(action)
+        }
 
         return binding.root
     }

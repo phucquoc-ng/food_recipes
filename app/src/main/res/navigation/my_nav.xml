@@ -23,9 +23,9 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesRecipesFragment"
-        android:name="com.ninjahitech.food_recipe.ui.FavoritesRecipesFragment"
+        android:name="com.ninjahitech.food_recipe.ui.favorites.FavoriteRecipesFragment"
         android:label="Favorites Recipes"
-        tools:layout="@layout/fragment_favorites_recipes">
+        tools:layout="@layout/fragment_favorite_recipes">
         <action
             android:id="@+id/action_favoriteRecipesFragment_to_detailsActivity"
             app:destination="@id/detailsActivity" />

@@ -31,8 +31,13 @@ class MainViewModel @Inject constructor(
 
     /** RETROFIT */
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
+    var searchedRecipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
+        searchRecipesSafeCall(queries)
+    }
+
+    fun searchRecipes(queries: Map<String, String>) = viewModelScope.launch {
         getRecipesSafeCall(queries)
     }
 
@@ -44,7 +49,7 @@ class MainViewModel @Inject constructor(
                 recipesResponse.value = handleFoodRecipesResponse(response)
 
                 val foodRecipe = recipesResponse.value!!.data
-                if (foodRecipe !=null) {
+                if (foodRecipe != null) {
                     offlineCacheRecipes(foodRecipe)
                 }
             } catch (e: Exception) {
@@ -55,8 +60,41 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    private suspend fun searchRecipesSafeCall(searchQuery: Map<String, String>) {
+        searchedRecipesResponse.value = NetworkResult.Loading()
+        if (hasInternetConnection()) {
+            try {
+                val response = repository.remote.searchRecipes(searchQuery)
+                searchedRecipesResponse.value = handleFoodRecipesResponse(response)
+            } catch (e: java.lang.Exception) {
+                searchedRecipesResponse.value = NetworkResult.Error("Recipes not found.")
+            }
+        } else {
+            searchedRecipesResponse.value = NetworkResult.Error("No Internet Connection.")
+        }
+    }
+
+//    private suspend fun getFoodJokeSafeCall(apiKey: String) {
+//        foodJokeResponse.value = NetworkResult.Loading()
+//        if (hasInternetConnection()) {
+//            try {
+//                val response = repository.remote.getFoodJoke(apiKey)
+//                foodJokeResponse.value = handleFoodJokeResponse(response)
+//
+//                val foodJoke = foodJokeResponse.value!!.data
+//                if(foodJoke != null){
+//                    offlineCacheFoodJoke(foodJoke)
+//                }
+//            } catch (e: java.lang.Exception) {
+//                foodJokeResponse.value = NetworkResult.Error("Recipes not found.")
+//            }
+//        } else {
+//            foodJokeResponse.value = NetworkResult.Error("No Internet Connection.")
+//        }
+//    }
+
     private fun offlineCacheRecipes(foodRecipe: FoodRecipe) {
-        val recipesEntity= RecipesEntity(foodRecipe)
+        val recipesEntity = RecipesEntity(foodRecipe)
         insertRecipes(recipesEntity)
     }
 

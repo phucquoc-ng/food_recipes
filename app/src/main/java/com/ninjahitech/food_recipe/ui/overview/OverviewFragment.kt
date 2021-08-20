@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import coil.load
-import com.ninjahitech.food_recipe.Constants.Companion.RECIPE_RESULT_KEY
+import com.ninjahitech.food_recipe.utils.Constants.Companion.RECIPE_RESULT_KEY
 import com.ninjahitech.food_recipe.R
 import com.ninjahitech.food_recipe.bindingadapters.RecipesRowBinding
 import com.ninjahitech.food_recipe.databinding.FragmentOverviewBinding

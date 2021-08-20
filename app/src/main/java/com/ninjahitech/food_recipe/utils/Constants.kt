@@ -1,4 +1,4 @@
-package com.ninjahitech.food_recipe
+package com.ninjahitech.food_recipe.utils
 
 class Constants {
 

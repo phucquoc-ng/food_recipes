@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.ninjahitech.food_recipe.Constants.Companion.BASE_IMAGE_URL
+import com.ninjahitech.food_recipe.utils.Constants.Companion.BASE_IMAGE_URL
 import com.ninjahitech.food_recipe.R
 import com.ninjahitech.food_recipe.databinding.IngredientsRowLayoutBinding
 import com.ninjahitech.food_recipe.models.ExtendedIngredient

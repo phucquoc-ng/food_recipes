@@ -60,11 +60,11 @@ class MainViewModel @Inject constructor(
     var foodJokeResponse: MutableLiveData<NetworkResult<FoodJoke>> = MutableLiveData()
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
-        searchRecipesSafeCall(queries)
+        getRecipesSafeCall(queries)
     }
 
-    fun searchRecipes(queries: Map<String, String>) = viewModelScope.launch {
-        getRecipesSafeCall(queries)
+    fun searchRecipes(searchQuery: Map<String, String>) = viewModelScope.launch {
+        searchRecipesSafeCall(searchQuery)
     }
 
     fun getFoodJoke(apiKey: String) = viewModelScope.launch {

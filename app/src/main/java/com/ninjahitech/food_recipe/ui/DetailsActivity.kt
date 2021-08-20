@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
-import com.ninjahitech.food_recipe.Constants.Companion.RECIPE_RESULT_KEY
+import com.ninjahitech.food_recipe.utils.Constants.Companion.RECIPE_RESULT_KEY
 import com.ninjahitech.food_recipe.R
 import com.ninjahitech.food_recipe.adapters.PagerAdapter
 import com.ninjahitech.food_recipe.data.database.entities.FavoritesEntity

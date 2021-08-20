@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.ninjahitech.food_recipe.Constants.Companion.DEFAULT_DIET_TYPE
-import com.ninjahitech.food_recipe.Constants.Companion.DEFAULT_MEAL_TYPE
+import com.ninjahitech.food_recipe.utils.Constants.Companion.DEFAULT_DIET_TYPE
+import com.ninjahitech.food_recipe.utils.Constants.Companion.DEFAULT_MEAL_TYPE
 import com.ninjahitech.food_recipe.databinding.RecipesBottomSheetBinding
 import com.ninjahitech.food_recipe.viewmodels.RecipesViewModel
 import java.lang.Exception

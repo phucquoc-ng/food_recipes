@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
-import com.ninjahitech.food_recipe.Constants
+import com.ninjahitech.food_recipe.utils.Constants
 import com.ninjahitech.food_recipe.databinding.FragmentInstructionsBinding
 import com.ninjahitech.food_recipe.models.Result
 

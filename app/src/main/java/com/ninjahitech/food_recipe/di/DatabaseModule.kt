@@ -2,7 +2,7 @@ package com.ninjahitech.food_recipe.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ninjahitech.food_recipe.Constants.Companion.DATABASE_NAME
+import com.ninjahitech.food_recipe.utils.Constants.Companion.DATABASE_NAME
 import com.ninjahitech.food_recipe.data.database.RecipesDatabase
 import dagger.Module
 import dagger.Provides

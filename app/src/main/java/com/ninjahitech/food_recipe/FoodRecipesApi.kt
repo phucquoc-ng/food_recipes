@@ -1,8 +1,10 @@
 package com.ninjahitech.food_recipe
 
+import com.ninjahitech.food_recipe.models.FoodJoke
 import com.ninjahitech.food_recipe.models.FoodRecipe
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 interface FoodRecipesApi {
@@ -17,8 +19,8 @@ interface FoodRecipesApi {
         @QueryMap searchQuery: Map<String, String>
     ): Response<FoodRecipe>
 
-//    @GET("food/jokes/random")
-//    suspend fun getFoodJoke(
-//        @Query("apiKey") apiKey: String
-//    ): Response<FoodJoke>
+    @GET("food/jokes/random")
+    suspend fun getFoodJoke(
+        @Query("apiKey") apiKey: String
+    ): Response<FoodJoke>
 }

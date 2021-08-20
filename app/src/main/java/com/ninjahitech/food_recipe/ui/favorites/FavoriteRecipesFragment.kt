@@ -29,8 +29,8 @@ class FavoriteRecipesFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFavoriteRecipesBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-//        binding.mainViewModel = mainViewModel
-//        binding.mAdapter = mAdapter
+        binding.mainViewModel = mainViewModel
+        binding.mAdapter = mAdapter
 
         setHasOptionsMenu(true)
 
@@ -45,7 +45,7 @@ class FavoriteRecipesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.deleteAll_favorite_recipes_menu){
-            //mainViewModel.deleteAllFavoriteRecipes()
+            mainViewModel.deleteAllFavoriteRecipes()
             showSnackBar()
         }
         return super.onOptionsItemSelected(item)

@@ -1,6 +1,7 @@
 package com.ninjahitech.food_recipe.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -25,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
 
-   private val args by navArgs<DetailsActivityArgs>()
+    private val args by navArgs<DetailsActivityArgs>()
     private val mainViewModel: MainViewModel by viewModels()
 
     private var recipeSaved = false
@@ -53,7 +54,7 @@ class DetailsActivity : AppCompatActivity() {
         titles.add("Instructions")
 
         val resultBundle = Bundle()
-       resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
+        resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
 
         val pagerAdapter = PagerAdapter(
             resultBundle,
@@ -73,7 +74,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
         menuItem = menu!!.findItem(R.id.save_to_favorites_menu)
-        //checkSavedRecipes(menuItem)
+        checkSavedRecipes(menuItem)
         return true
     }
 
@@ -81,27 +82,27 @@ class DetailsActivity : AppCompatActivity() {
         if (item.itemId == android.R.id.home) {
             finish()
         } else if (item.itemId == R.id.save_to_favorites_menu && !recipeSaved) {
-            // saveToFavorites(item)
+            saveToFavorites(item)
         } else if (item.itemId == R.id.save_to_favorites_menu && recipeSaved) {
-            //removeFromFavorites(item)
+            removeFromFavorites(item)
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun checkSavedRecipes(menuItem: MenuItem) {
-//        mainViewModel.readFavoriteRecipes.observe(this, { favoritesEntity ->
-//            try {
-//                for (savedRecipe in favoritesEntity) {
-//                    if (savedRecipe.result.recipeId == args.result.recipeId) {
-//                        changeMenuItemColor(menuItem, R.color.yellow)
-//                        savedRecipeId = savedRecipe.id
-//                        recipeSaved = true
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                Log.d("DetailsActivity", e.message.toString())
-//            }
-//        })
+        mainViewModel.readFavoriteRecipes.observe(this, { favoritesEntity ->
+            try {
+                for (savedRecipe in favoritesEntity) {
+                    if (savedRecipe.result.recipeId == args.result.recipeId) {
+                        changeMenuItemColor(menuItem, R.color.yellow)
+                        savedRecipeId = savedRecipe.id
+                        recipeSaved = true
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d("DetailsActivity", e.message.toString())
+            }
+        })
     }
 
     private fun saveToFavorites(item: MenuItem) {
@@ -110,7 +111,7 @@ class DetailsActivity : AppCompatActivity() {
                 0,
                 args.result
             )
-        //mainViewModel.insertFavoriteRecipe(favoritesEntity)
+        mainViewModel.insertFavoriteRecipe(favoritesEntity)
         changeMenuItemColor(item, R.color.yellow)
         showSnackBar("Recipe saved.")
         recipeSaved = true
@@ -122,7 +123,7 @@ class DetailsActivity : AppCompatActivity() {
                 savedRecipeId,
                 args.result
             )
-        //mainViewModel.deleteFavoriteRecipe(favoritesEntity)
+        mainViewModel.deleteFavoriteRecipe(favoritesEntity)
         changeMenuItemColor(item, R.color.white)
         showSnackBar("Removed from Favorites.")
         recipeSaved = false

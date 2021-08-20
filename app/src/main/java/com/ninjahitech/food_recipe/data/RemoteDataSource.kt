@@ -1,6 +1,7 @@
 package com.ninjahitech.food_recipe.data
 
 import com.ninjahitech.food_recipe.FoodRecipesApi
+import com.ninjahitech.food_recipe.models.FoodJoke
 import com.ninjahitech.food_recipe.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject
@@ -14,5 +15,9 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun searchRecipes(searchQuery: Map<String, String>): Response<FoodRecipe> {
         return foodRecipesApi.searchRecipes(searchQuery)
+    }
+
+    suspend fun getFoodJoke(apiKey: String): Response<FoodJoke> {
+        return foodRecipesApi.getFoodJoke(apiKey)
     }
 }

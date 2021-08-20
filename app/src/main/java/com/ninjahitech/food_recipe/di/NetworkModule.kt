@@ -1,7 +1,7 @@
 package com.ninjahitech.food_recipe.di
 
 import com.ninjahitech.food_recipe.Constants.Companion.BASE_URL
-import com.ninjahitech.food_recipe.FoodRecipesApi
+import com.ninjahitech.food_recipe.data.network.FoodRecipesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

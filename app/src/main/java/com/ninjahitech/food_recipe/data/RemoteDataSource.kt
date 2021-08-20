@@ -1,6 +1,6 @@
 package com.ninjahitech.food_recipe.data
 
-import com.ninjahitech.food_recipe.FoodRecipesApi
+import com.ninjahitech.food_recipe.data.network.FoodRecipesApi
 import com.ninjahitech.food_recipe.models.FoodJoke
 import com.ninjahitech.food_recipe.models.FoodRecipe
 import retrofit2.Response

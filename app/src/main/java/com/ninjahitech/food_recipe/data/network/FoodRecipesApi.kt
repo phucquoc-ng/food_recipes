@@ -1,4 +1,4 @@
-package com.ninjahitech.food_recipe
+package com.ninjahitech.food_recipe.data.network
 
 import com.ninjahitech.food_recipe.models.FoodJoke
 import com.ninjahitech.food_recipe.models.FoodRecipe

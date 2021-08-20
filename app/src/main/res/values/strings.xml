@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">food_recipe</string>
+    <string name="app_name">CT Nấu Ăn</string>
     <string name="recipes_fragment">Recipes</string>
     <string name="favorites">Favorites</string>
     <string name="joke">Joke</string>

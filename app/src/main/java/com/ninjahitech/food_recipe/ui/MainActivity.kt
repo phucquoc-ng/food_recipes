@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.AppTheme)
+        setTheme(R.style.AppTheme) //for handle splash theme first and then app theme
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
